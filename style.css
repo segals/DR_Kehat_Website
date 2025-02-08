@@ -9,11 +9,13 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  font-size: 18px; /* Increased base font size */
+  line-height: 1.8; /* Increased line spacing */
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1400px;  /* Set to a moderate maximum width */
   margin: auto;
 }
 
@@ -43,8 +45,7 @@ header {
   flex: 1;
 }
 
-/* Ensure there is a horizontal gap between the image and the text */
-/* In an RTL container, the text (.white-box) is on the right and the image (.side-image) on the left */
+/* In a landscape layout (default), the text (.white-box) is on the right and the image (.side-image) on the left */
 .white-box {
   order: 1; /* Text appears on the right */
   background: white;
@@ -59,7 +60,7 @@ header {
 
 .side-image {
   order: 2; /* Image appears on the left */
-  margin-right: 20px; /* Reduced horizontal gap between the image and text */
+  margin-right: 20px; /* Horizontal gap between the image and text */
   display: flex;
   align-items: stretch;
 }
@@ -92,7 +93,7 @@ header {
 
 .contact p {
   font-size: 1.1em;
-  line-height: 1.6;
+  line-height: 1.8; /* Increased line spacing */
   text-align: right;
   display: flex;
   align-items: center;
@@ -143,5 +144,23 @@ footer {
 @media (max-height: 500px) {
   .about-wrapper {
     flex-direction: column;
+  }
+}
+
+/* When the window is in portrait (vertical) orientation, stack the elements
+   with the image above the text */
+@media (orientation: portrait) {
+  .about-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .side-image {
+    order: 1;  /* Image appears on top */
+    margin-right: 0;
+    margin-bottom: 20px; /* vertical gap */
+  }
+  .white-box {
+    order: 2;  /* Text appears below the image */
   }
 }
