@@ -11,7 +11,6 @@ body {
   min-height: 100vh;
 }
 
-/* Additional styles */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -27,58 +26,68 @@ header {
   width: 100%;
 }
 
-nav {
-  background: #2980b9;
-  padding: 10px 0;
-  width: 100%;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-}
-
-nav ul li {
-  margin: 0 15px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1em;
-}
-
+/* Main About Section */
 .about-wrapper {
   display: flex;
-  flex-direction: row-reverse; /* In RTL, this positions the image on the right */
-  align-items: stretch; /* Stretch the items to equal height */
+  flex-wrap: nowrap;
+  align-items: stretch;
   justify-content: space-between;
   margin: 20px 0;
   width: 100%;
+  min-height: 300px;
 }
 
+/* Both columns share equal available space */
+.side-image,
 .white-box {
+  flex: 1;
+}
+
+/* Ensure there is a horizontal gap between the image and the text */
+/* In an RTL container, the text (.white-box) is on the right and the image (.side-image) on the left */
+.white-box {
+  order: 1; /* Text appears on the right */
   background: white;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  flex: 1;
-  margin-left: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  position: relative;
 }
 
-.white-box h2 {
-  margin-top: 0;
+.side-image {
+  order: 2; /* Image appears on the left */
+  margin-right: 20px; /* Reduced horizontal gap between the image and text */
+  display: flex;
+  align-items: stretch;
 }
 
-.white-box p {
+/* Make the image fill its container */
+.side-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Pseudo-element to force the white box to grow if its text is short,
+   ensuring it matches the height of the image */
+.white-box::after {
+  content: '';
+  flex-grow: 1;
+}
+
+.note {
+  color: black;
+  font-weight: bold;
   font-size: 1.1em;
-  line-height: 1.6;
-  text-align: justify;
+  background-color: #f2d7d5;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 
 .contact p {
@@ -103,41 +112,6 @@ nav ul li a {
   text-decoration: underline;
 }
 
-.note {
-  color: black;
-  font-weight: bold;
-  font-size: 1.1em;
-  background-color: #f2d7d5;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-a.phone-link, a.map-link {
-  color: #2980b9;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-a.phone-link:hover, a.map-link:hover {
-  text-decoration: underline;
-}
-
-.side-image {
-  flex: 0 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.side-image img {
-  height: 100%;
-  width: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  object-fit: cover;
-}
-
 footer {
   background: #2c3e50;
   color: white;
@@ -147,21 +121,27 @@ footer {
   width: 100%;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for narrower screens */
 @media (max-width: 768px) {
   .about-wrapper {
     flex-direction: column;
     align-items: center;
+    gap: 20px; /* vertical gap between image and text */
   }
+  .side-image,
   .white-box {
-    margin-left: 0;
-    margin-bottom: 15px;
     width: 100%;
-  }
-  .side-image {
-    width: 100%;
+    margin-right: 0;
   }
   .side-image img {
     max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Responsive adjustments for very short vertical screens */
+@media (max-height: 500px) {
+  .about-wrapper {
+    flex-direction: column;
   }
 }
