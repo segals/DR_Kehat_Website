@@ -131,7 +131,7 @@ a.phone-link:hover, a.map-link:hover {
 }
 
 .side-image img {
-  height: 80%;
+  height: 100%;
   width: auto;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -156,12 +156,12 @@ footer {
   .white-box {
     margin-left: 0;
     margin-bottom: 15px;
-    width: 80%;
+    width: 100%;
   }
   .side-image {
-    width: 80%;
+    width: 100%;
   }
   .side-image img {
-    max-width: 80%;
+    max-width: 100%;
   }
 }
