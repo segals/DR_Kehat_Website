@@ -156,12 +156,12 @@ footer {
   .white-box {
     margin-left: 0;
     margin-bottom: 15px;
-    width: 100%;
+    width: 80%;
   }
   .side-image {
-    width: 100%;
+    width: 80%;
   }
   .side-image img {
-    max-width: 100%;
+    max-width: 80%;
   }
 }
