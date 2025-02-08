@@ -131,7 +131,7 @@ a.phone-link:hover, a.map-link:hover {
 }
 
 .side-image img {
-  height: 100%;
+  height: 80%;
   width: auto;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
