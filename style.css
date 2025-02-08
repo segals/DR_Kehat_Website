@@ -22,10 +22,13 @@ body {
 header {
   background: #2c3e50;
   color: white;
-  padding: 20px 0;
+  padding: 0px 0; /* Minimized vertical padding to make title as narrow as possible */ /* Further reduced vertical padding to make title even narrower */ /* Further reduced vertical padding to make title narrower */ /* Reduced vertical padding to make title narrower */
   font-size: 1.5em;
   text-align: center;
-  width: 100%;
+  width: 100%; /* Full width to extend title to the sides */
+  margin: auto; /* Kept it narrower horizontally */
+  margin: auto; /* Made the title narrower */
+  margin: auto;
 }
 
 /* Main About Section */
@@ -56,6 +59,7 @@ header {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  text-align: right; /* Ensure text alignment on mobile */
 }
 
 .side-image {
@@ -63,12 +67,13 @@ header {
   margin-right: 20px; /* Horizontal gap between the image and text */
   display: flex;
   align-items: stretch;
+  max-width: 40%; /* Reduced image width */
 }
 
 /* Make the image fill its container */
 .side-image img {
   width: 100%;
-  height: 100%;
+  height: auto; /* Maintain aspect ratio */
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -133,6 +138,7 @@ footer {
   .white-box {
     width: 100%;
     margin-right: 0;
+    text-align: center; /* Center text on mobile */
   }
   .side-image img {
     max-width: 100%;
@@ -159,8 +165,10 @@ footer {
     order: 1;  /* Image appears on top */
     margin-right: 0;
     margin-bottom: 20px; /* vertical gap */
+    max-width: 60%; /* Adjust image width for portrait mode */
   }
   .white-box {
     order: 2;  /* Text appears below the image */
+    text-align: center; /* Ensure text is centered on mobile */
   }
 }
